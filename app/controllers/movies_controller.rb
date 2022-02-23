@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
     if params[:sort_by] == 'title'
       @title_status =  'clicked'
     end
-    if params[:sort_by] == 'clicked'
-      @release_date_status = 'release_date_clicked'
+    if params[:sort_by] == 'release_date'
+      @release_date_status = 'clicked'
     end
   end
 

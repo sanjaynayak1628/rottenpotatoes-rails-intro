@@ -9,9 +9,9 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.order(params[:sort_by])
     if params[:sort_by] == 'title'
-      @status =  'clicked'
+      @status =  'title_clicked'
     elsif params[:sort_by] == 'release_date'
-      @status = 'clicked'
+      @status = 'release_date_clicked'
     end
   end
 

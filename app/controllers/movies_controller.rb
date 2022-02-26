@@ -32,6 +32,8 @@ class MoviesController < ApplicationController
     if session[:sort] == 'release_date'
       @release_date_status = 'clicked'
     end
+    
+    flash.keep
   end
 
   def new

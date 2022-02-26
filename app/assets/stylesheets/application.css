@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
-.hilite {
+table#movies th.hilite {
 font-family: sans-serif;
+color: #488FB1;
+font-weight: bolder;
+font-style: italic;
 }

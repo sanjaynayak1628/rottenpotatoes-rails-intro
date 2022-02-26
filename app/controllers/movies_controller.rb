@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
     @allRatings = Movie.get_ratings_uniq
     @ratings_checks = @allRatings
     
-    if params[:sort]
-      session[:sort] = params[:sort]
+    if params[:sort_by]
+      session[:sort] = params[:sort_by]
     end
     
     if params[:ratings]
@@ -24,12 +24,12 @@ class MoviesController < ApplicationController
       @movies = @movies.where(rating: @ratings_checks)
     end
     
-    @movies = @movies.order(params[:sort_by])
+    @movies = @movies.order(session[:sort])
     
-    if params[:sort_by] == 'title'
+    if session[:sort] == 'title'
       @title_status =  'clicked'
     end
-    if params[:sort_by] == 'release_date'
+    if session[:sort] == 'release_date'
       @release_date_status = 'clicked'
     end
   end

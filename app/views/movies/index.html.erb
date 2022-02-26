@@ -6,9 +6,9 @@
 
 <%= form_tag movies_path, :id => 'ratings_form', :method => :get do %>
   Include:
-  <%= @allRatings.each do |rating| %>
+  <%- @allRatings.each do |rating| %>
    <%= rating %>
-    <%= check_box_tag "allRatings[#{rating}]", '', if @ratings_checks; @ratings_checks.include?(rating) end, :id => "ratings_#{rating}" %>
+    <%= check_box_tag "ratings[#{rating}]", '', if @ratings_checks; @ratings_checks.include?(rating) end, :id => "ratings_#{rating}" %>
   <% end  %>
   <%= submit_tag 'Refresh', :class => 'btn btn-primary', :id => "ratings_submit" %>
 <% end  %>
@@ -16,9 +16,9 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th class="<%= 'hilite .text-primary .bg-warning' if @title_status=='clicked'%>"><%= link_to "Movie Title", movies_path(:sort_by=>'title'), :id=>"title_header" %></th>
+      <th class="<%= 'hilite .text-primary bg-warning' if @title_status=='clicked'%>"><%= link_to "Movie Title", movies_path(:sort_by=>'title'), :id=>"title_header" %></th>
       <th>Rating</th>
-      <th class="<%= 'hilite .text-primary .bg-warning' if @release_date_status=='clicked'%>"><%= link_to "Release Date", movies_path(:sort_by=>'release_date'), :id=>"release_date_header" %></th>
+      <th class="<%= 'hilite .text-primary bg-warning' if @release_date_status=='clicked'%>"><%= link_to "Release Date", movies_path(:sort_by=>'release_date'), :id=>"release_date_header" %></th>
       <th>More Info</th>
     </tr>
   </thead>

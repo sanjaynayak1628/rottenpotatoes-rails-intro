@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings].keys
     end
     
-    if session[:rating]
+    if session[:ratings]
       @ratings_checks = session[:ratings]
       @movies = @movies.where(rating: @ratings_checks)
     end

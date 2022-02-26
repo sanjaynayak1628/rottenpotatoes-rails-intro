@@ -26,10 +26,10 @@ class MoviesController < ApplicationController
     
     @movies = @movies.order(params[:sort_by])
     
-    if session[:sort] == 'title'
+    if params[:sort_by] == 'title'
       @title_status =  'clicked'
     end
-    if session[:sort] == 'release_date'
+    if params[:sort_by] == 'release_date'
       @release_date_status = 'clicked'
     end
   end
